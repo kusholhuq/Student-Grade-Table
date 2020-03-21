@@ -5,7 +5,13 @@ class App{
   handleGetGradesSuccess(grades){
     //console.log(grades);
     //can remove this console log later
-    this.gradeTable.updateGrades(grades)
+    this.gradeTable.updateGrades(grades);
+    var sumOfGrades = 0;
+    for(var k = 0;k<grades.length; k++){
+      sumOfGrades = sumOfGrades + grades[k].grade;
+    }
+    var computedAverage = sumOfGrades/grades.length;
+    this.pageHeader.updateAverage(computedAverage);
   }
   constructor(gradeTable, pageHeader){
     this.handleGetGradesError = this.handleGetGradesError.bind(this);
