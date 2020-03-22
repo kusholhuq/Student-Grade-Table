@@ -22,6 +22,9 @@ class App{
     this.createGrade = this.createGrade.bind(this);
     this.handleCreateGradeError = this.handleCreateGradeError.bind(this);
     this.handleCreateGradeSuccess = this.handleCreateGradeSuccess.bind(this);
+    this.deleteGrade = this.deleteGrade.bind(this);
+    this.handleDeleteGradeError = this.handleDeleteGradeError.bind(this);
+    this.handleDeleteGradeSuccess = this.handleDeleteGradeSuccess.bind(this);
   }
   getGrades(){
     $.ajax({
@@ -52,6 +55,15 @@ class App{
     console.error(error);
   }
   handleCreateGradeSuccess(){
+    this.getGrades();
+  }
+  deleteGrade(id){
+    console.log(id);
+  }
+  handleDeleteGradeError(error){
+    console.error(error);
+  }
+  handleDeleteGradeSuccess(){
     this.getGrades();
   }
 }

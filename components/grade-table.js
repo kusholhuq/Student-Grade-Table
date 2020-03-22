@@ -12,6 +12,7 @@ class GradeTable{
       var name = document.createElement("td");
       var course = document.createElement("td");
       var grade = document.createElement("td");
+      //maybe make a del button var here?
 
       name.textContent = grades[i].name;
       course.textContent = grades[i].course;
@@ -23,5 +24,8 @@ class GradeTable{
 
       tbody.appendChild(row);
     }
+  }
+  onDeleteClick(deleteGrade){
+    this.deleteGrade = deleteGrade;
   }
 }
