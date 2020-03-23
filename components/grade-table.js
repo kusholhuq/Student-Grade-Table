@@ -27,11 +27,10 @@ class GradeTable{
       tbody.appendChild(this.renderGradeRow(grades[i], this.deleteGrade));
     }
     if(grades.length){
-      var ptag = document.querySelector("#noGrades");
-      ptag.setAttribute("class","d-none");
+      this.noGradesElement.className="d-none";
     }
-    else if(!grades.length){
-      ptag.classList.remove("d-none");
+    else{
+      this.noGradesElement.className="";
     }
   }
   onDeleteClick(deleteGrade){
