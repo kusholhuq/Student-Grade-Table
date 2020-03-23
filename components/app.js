@@ -3,8 +3,6 @@ class App{
     console.error(error);
   }
   handleGetGradesSuccess(grades){
-    //console.log(grades);
-    //can remove this console log later
     this.gradeTable.updateGrades(grades);
     var sumOfGrades = 0;
     for(var k = 0;k<grades.length; k++){
