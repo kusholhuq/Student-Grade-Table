@@ -1,5 +1,6 @@
+var noGradePTag = document.querySelector("#noGrades");
 var table = document.querySelector("table");
-var gradeTable = new GradeTable(table);
+var gradeTable = new GradeTable(table, noGradePTag);
 
 //might need to make this just the span badge not the whole header
 var header = document.querySelector("header");

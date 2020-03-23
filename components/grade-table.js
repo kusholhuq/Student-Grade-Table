@@ -1,28 +1,37 @@
 class GradeTable{
-  constructor(tableElement){
+  constructor(tableElement, noGradesElement){
     this.tableElement = tableElement;
+    this.noGradesElement = noGradesElement;
   }
   updateGrades(grades){
     console.log(grades);
     var tbody = this.tableElement.querySelector("tbody");
     tbody.innerHTML = "";
     for (var i = 0; i<grades.length; i++){
-      var row = document.createElement("tr");
+      // var row = document.createElement("tr");
 
-      var name = document.createElement("td");
-      var course = document.createElement("td");
-      var grade = document.createElement("td");
+      // var name = document.createElement("td");
+      // var course = document.createElement("td");
+      // var grade = document.createElement("td");
       //maybe make a del button var here?
 
-      name.textContent = grades[i].name;
-      course.textContent = grades[i].course;
-      grade.textContent = grades[i].grade;
+      // name.textContent = grades[i].name;
+      // course.textContent = grades[i].course;
+      // grade.textContent = grades[i].grade;
 
-      row.appendChild(name);
-      row.appendChild(course);
-      row.appendChild(grade);
+      // row.appendChild(name);
+      // row.appendChild(course);
+      // row.appendChild(grade);
 
-      tbody.appendChild(row);
+
+      tbody.appendChild(this.renderGradeRow(grades[i], this.deleteGrade));
+    }
+    if(grades.length){
+      var ptag = document.querySelector("#noGrades");
+      ptag.setAttribute("class","d-none");
+    }
+    else if(!grades.length){
+      ptag.classList.remove("d-none");
     }
   }
   onDeleteClick(deleteGrade){
@@ -41,7 +50,8 @@ class GradeTable{
     delCourse.textContent = data.course;
     delGrade.textContent = data.grade;
     delButton.textContent = "DELETE";
-    delButton.classList.add("btn btn-secondary");
+    delButton.classList.add("btn");
+    delButton.classList.add("btn-secondary")
     delButton.addEventListener("click", function(){
       deleteGrade(data.id);
     })
